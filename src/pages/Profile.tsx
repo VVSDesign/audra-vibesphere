@@ -42,7 +42,7 @@ const Profile = () => {
         <div className="relative px-5 pb-4">
           <div className="flex items-end -mt-12">
             <Avatar className="h-24 w-24 border-4 border-audra-background">
-              <AvatarImage src={userData.avatar} alt={userData.displayName} className="object-cover" />
+              <AvatarImage src={userData.avatar} alt={userData.displayName} className="object-cover-cover opacity-0" />
             </Avatar>
             <div className="ml-4 mb-1 flex-1">
               <h1 className="text-xl font-bold">{userData.displayName}</h1>
