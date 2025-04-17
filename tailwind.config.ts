@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        audra: {
+          teal: "#00FFFF",
+          purple: "#A020F0",
+          background: "#000000",
+          dark: "#121212",
+          gray: "#333333",
+          lightGray: "#8E9196",
+        },
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
