@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import MobileLayout from '@/components/layout/MobileLayout';
-import { Settings, Edit, Music, ListMusic, Users, Star } from 'lucide-react';
+import { Settings, Edit, Music, ListMusic, Star } from 'lucide-react';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 
 // Dummy data
@@ -20,7 +19,7 @@ const userData = {
 const profileTabs = [
   { id: 'reposts', label: 'Reposts', icon: Star },
   { id: 'playlists', label: 'Playlists', icon: ListMusic },
-  { id: 'following', label: 'Following', icon: Users },
+  { id: 'top5', label: 'My Top 5 Favs', icon: Star },
 ];
 
 const Profile = () => {
@@ -139,15 +138,15 @@ const Profile = () => {
           </div>
         )}
         
-        {activeTab === 'following' && (
+        {activeTab === 'top5' && (
           <div className="grid grid-cols-2 gap-3">
-            {Array.from({ length: 4 }).map((_, i) => (
+            {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 text-center">
                 <Avatar className="mx-auto mb-2 h-16 w-16 border-2 border-audra-purple">
-                  <AvatarImage src={`https://i.pravatar.cc/150?img=${20+i}`} alt="User avatar" />
+                  <AvatarImage src={`https://i.pravatar.cc/150?img=${25+i}`} alt="Favorite artist" />
                 </Avatar>
-                <h4 className="font-medium">{['Beatsmith', 'J.Loops', 'SampleKing', 'MixQueen'][i]}</h4>
-                <p className="text-xs text-white/60">{[134, 1.2, 543, 76][i]}K followers</p>
+                <h4 className="font-medium">{['Rhythm Racer', 'Beat Alchemist', 'Sonic Waves', 'Melody Maker', 'Groove Master'][i]}</h4>
+                <p className="text-xs text-white/60">Top Track: {['Electric Dreams', 'Synth Symphony', 'Digital Pulse', 'Techno Fusion', 'Ambient Echoes'][i]}</p>
               </div>
             ))}
           </div>
