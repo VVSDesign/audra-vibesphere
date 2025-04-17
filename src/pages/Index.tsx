@@ -55,7 +55,7 @@ const dropFeedData = [
     dropProbability: 85,
     votes: { willDrop: 1243, wontDrop: 321 },
     comments: [
-      { id: 1, username: 'OVOFan', avatar: 'https://i.pravatar.cc/150?img=33', text: 'I've been waiting for this collab!', timestamp: '1h ago' },
+      { id: 1, username: 'OVOFan', avatar: 'https://i.pravatar.cc/150?img=33', text: "I've been waiting for this collab!", timestamp: '1h ago' },
       { id: 2, username: 'MusicInsider', avatar: 'https://i.pravatar.cc/150?img=42', text: 'My sources confirm this is happening 💯', timestamp: '30m ago' }
     ]
   },
