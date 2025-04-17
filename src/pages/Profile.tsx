@@ -94,8 +94,8 @@ const Profile = () => {
                 <Music size={24} className="opacity-70" />
               </div>
               <div>
-                <h4 className="font-medium">Buttah</h4>
-                <p className="text-xs text-white/60">Producer showcase • 2:45</p>
+                <h4 className="font-medium">Drown in My Styrofoam</h4>
+                <p className="text-xs text-white/60">NoCap • 2:45</p>
               </div>
             </div>
             <div className="mt-2 h-1 w-full bg-audra-gray/40 rounded-full overflow-hidden">
