@@ -45,7 +45,7 @@ const Profile = () => {
               <AvatarImage src={userData.avatar} alt={userData.displayName} className="object-cover-cover opacity-0" />
             </Avatar>
             <div className="ml-4 mb-1 flex-1">
-              <h1 className="text-xl font-bold">{userData.displayName}</h1>
+              
               <p className="text-white/60">@{userData.username}</p>
             </div>
             <button className="bg-audra-dark p-2 rounded-full">
