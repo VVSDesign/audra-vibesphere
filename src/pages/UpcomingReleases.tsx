@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MobileLayout from '@/components/layout/MobileLayout';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
@@ -7,61 +6,60 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Calendar } from 'lucide-react';
 
 // Mock upcoming releases data
-const upcomingReleases = [
-  {
-    id: 1,
-    artistName: 'The Weeknd',
-    artistAvatar: 'https://i.pravatar.cc/150?img=3',
-    releaseTitle: 'After Hours (Deluxe)',
-    releaseDate: '04/24/2025',
-    genre: 'R&B/Soul',
-    releaseType: 'Album'
-  },
-  {
-    id: 2,
-    artistName: 'SZA',
-    artistAvatar: 'https://i.pravatar.cc/150?img=23',
-    releaseTitle: 'CTRL 2',
-    releaseDate: '04/20/2025',
-    genre: 'R&B/Soul',
-    releaseType: 'Album'
-  },
-  {
-    id: 3,
-    artistName: 'Tyler, The Creator',
-    artistAvatar: 'https://i.pravatar.cc/150?img=13',
-    releaseTitle: 'IGOR\'S THEME (Remix)',
-    releaseDate: '04/22/2025',
-    genre: 'Hip-Hop',
-    releaseType: 'Single'
-  },
-  {
-    id: 4,
-    artistName: 'Doja Cat',
-    artistAvatar: 'https://i.pravatar.cc/150?img=19',
-    releaseTitle: 'Planet Her 2',
-    releaseDate: '04/21/2025',
-    genre: 'Pop',
-    releaseType: 'EP'
-  },
-  {
-    id: 5,
-    artistName: 'Kendrick Lamar',
-    artistAvatar: 'https://i.pravatar.cc/150?img=11',
-    releaseTitle: 'Untitled Unmastered 2',
-    releaseDate: '04/25/2025',
-    genre: 'Hip-Hop',
-    releaseType: 'Album'
-  }
-];
-
-const UpcomingReleaseCard = ({ artistName, artistAvatar, releaseTitle, releaseDate, genre, releaseType }) => {
-  return (
-    <Card className="bg-audra-dark border-white/10 mb-4">
+const upcomingReleases = [{
+  id: 1,
+  artistName: 'The Weeknd',
+  artistAvatar: 'https://i.pravatar.cc/150?img=3',
+  releaseTitle: 'After Hours (Deluxe)',
+  releaseDate: '04/24/2025',
+  genre: 'R&B/Soul',
+  releaseType: 'Album'
+}, {
+  id: 2,
+  artistName: 'SZA',
+  artistAvatar: 'https://i.pravatar.cc/150?img=23',
+  releaseTitle: 'CTRL 2',
+  releaseDate: '04/20/2025',
+  genre: 'R&B/Soul',
+  releaseType: 'Album'
+}, {
+  id: 3,
+  artistName: 'Tyler, The Creator',
+  artistAvatar: 'https://i.pravatar.cc/150?img=13',
+  releaseTitle: 'IGOR\'S THEME (Remix)',
+  releaseDate: '04/22/2025',
+  genre: 'Hip-Hop',
+  releaseType: 'Single'
+}, {
+  id: 4,
+  artistName: 'Doja Cat',
+  artistAvatar: 'https://i.pravatar.cc/150?img=19',
+  releaseTitle: 'Planet Her 2',
+  releaseDate: '04/21/2025',
+  genre: 'Pop',
+  releaseType: 'EP'
+}, {
+  id: 5,
+  artistName: 'Kendrick Lamar',
+  artistAvatar: 'https://i.pravatar.cc/150?img=11',
+  releaseTitle: 'Untitled Unmastered 2',
+  releaseDate: '04/25/2025',
+  genre: 'Hip-Hop',
+  releaseType: 'Album'
+}];
+const UpcomingReleaseCard = ({
+  artistName,
+  artistAvatar,
+  releaseTitle,
+  releaseDate,
+  genre,
+  releaseType
+}) => {
+  return <Card className="bg-audra-dark border-white/10 mb-4">
       <CardContent className="p-4">
         <div className="flex items-center">
           <Avatar className="h-14 w-14 border-2 border-audra-purple">
-            <AvatarImage src={artistAvatar} alt={artistName} />
+            <AvatarImage src={artistAvatar} alt={artistName} className="cover opacity-0" />
           </Avatar>
           <div className="ml-4 flex-grow">
             <h3 className="font-bold">{artistName}</h3>
@@ -79,13 +77,10 @@ const UpcomingReleaseCard = ({ artistName, artistAvatar, releaseTitle, releaseDa
           </div>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
 const UpcomingReleases = () => {
-  return (
-    <MobileLayout title="Upcoming Releases">
+  return <MobileLayout title="Upcoming Releases">
       <div className="p-4">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-gradient-teal-purple mb-2">Upcoming Releases</h1>
@@ -95,10 +90,7 @@ const UpcomingReleases = () => {
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">This Week</h2>
-            <select 
-              className="bg-audra-dark text-sm rounded-full px-3 py-1 border border-white/10"
-              defaultValue="all"
-            >
+            <select className="bg-audra-dark text-sm rounded-full px-3 py-1 border border-white/10" defaultValue="all">
               <option value="all">All Genres</option>
               <option value="hiphop">Hip-Hop</option>
               <option value="rnb">R&B/Soul</option>
@@ -107,13 +99,9 @@ const UpcomingReleases = () => {
             </select>
           </div>
 
-          {upcomingReleases.map(release => (
-            <UpcomingReleaseCard key={release.id} {...release} />
-          ))}
+          {upcomingReleases.map(release => <UpcomingReleaseCard key={release.id} {...release} />)}
         </div>
       </div>
-    </MobileLayout>
-  );
+    </MobileLayout>;
 };
-
 export default UpcomingReleases;
