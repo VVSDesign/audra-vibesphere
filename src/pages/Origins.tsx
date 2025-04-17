@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import MobileLayout from '@/components/layout/MobileLayout';
 import { ChevronLeft, Waves, Clock, Volume2, Share2, ExternalLink } from 'lucide-react';
@@ -13,50 +12,39 @@ const currentSong = {
   cover: "https://i.pravatar.cc/400?img=67",
   year: 2018
 };
-
-const sampleData = [
-  {
-    id: 1,
-    title: "Gimme The Loot",
-    artist: "The Notorious B.I.G.",
-    year: 1994,
-    cover: "https://i.pravatar.cc/400?img=68",
-    sampleTimecode: "1:23",
-    percentage: 85
-  },
-  {
-    id: 2,
-    title: "I Wanna Rock",
-    artist: "Luke",
-    year: 1992,
-    cover: "https://i.pravatar.cc/400?img=56",
-    sampleTimecode: "2:45", 
-    percentage: 64
-  },
-  {
-    id: 3,
-    title: "Sailin' Da South",
-    artist: "DJ Screw",
-    year: 1995,
-    cover: "https://i.pravatar.cc/400?img=59",
-    sampleTimecode: "0:35",
-    percentage: 42
-  }
-];
-
+const sampleData = [{
+  id: 1,
+  title: "Gimme The Loot",
+  artist: "The Notorious B.I.G.",
+  year: 1994,
+  cover: "https://i.pravatar.cc/400?img=68",
+  sampleTimecode: "1:23",
+  percentage: 85
+}, {
+  id: 2,
+  title: "I Wanna Rock",
+  artist: "Luke",
+  year: 1992,
+  cover: "https://i.pravatar.cc/400?img=56",
+  sampleTimecode: "2:45",
+  percentage: 64
+}, {
+  id: 3,
+  title: "Sailin' Da South",
+  artist: "DJ Screw",
+  year: 1995,
+  cover: "https://i.pravatar.cc/400?img=59",
+  sampleTimecode: "0:35",
+  percentage: 42
+}];
 const Origins = () => {
   const navigate = useNavigate();
   const [listening, setListening] = useState(false);
-
-  return (
-    <MobileLayout hideNavigation>
+  return <MobileLayout hideNavigation>
       {/* Custom header */}
       <div className="sticky top-0 z-10 glass backdrop-blur-lg py-4 px-5">
         <div className="flex justify-between items-center">
-          <button 
-            onClick={() => navigate('/audrahub')}
-            className="flex items-center"
-          >
+          <button onClick={() => navigate('/audrahub')} className="flex items-center">
             <ChevronLeft size={20} className="mr-1" />
             <span>Back</span>
           </button>
@@ -80,7 +68,7 @@ const Origins = () => {
           
           <div className="relative z-10 flex items-center mb-6">
             <div className="w-16 h-16 rounded-xl overflow-hidden mr-4 shadow-lg">
-              <img src={currentSong.cover} alt={currentSong.title} className="w-full h-full object-cover" />
+              <img src={currentSong.cover} alt={currentSong.title} className="w-full h-full object-cover-cover opacity-0" />
             </div>
             <div>
               <h3 className="font-bold text-lg">{currentSong.title}</h3>
@@ -89,8 +77,7 @@ const Origins = () => {
           </div>
           
           <div className="flex justify-center mb-6">
-            {listening ? (
-              <div className="flex items-center space-x-1">
+            {listening ? <div className="flex items-center space-x-1">
                 <span className="h-8 w-1 bg-audra-teal animate-pulse" />
                 <span className="h-12 w-1 bg-audra-teal animate-pulse delay-75" />
                 <span className="h-6 w-1 bg-audra-teal animate-pulse delay-100" />
@@ -101,20 +88,10 @@ const Origins = () => {
                 <span className="h-8 w-1 bg-audra-purple animate-pulse" />
                 <span className="h-12 w-1 bg-audra-purple animate-pulse delay-75" />
                 <span className="h-6 w-1 bg-audra-purple animate-pulse delay-100" />
-              </div>
-            ) : (
-              <Waves size={70} className="text-audra-teal opacity-90" />
-            )}
+              </div> : <Waves size={70} className="text-audra-teal opacity-90" />}
           </div>
           
-          <button 
-            onClick={() => setListening(!listening)}
-            className={`w-full py-3 rounded-xl font-medium ${
-              listening 
-                ? 'bg-audra-purple text-white' 
-                : 'bg-gradient-teal-purple text-black'
-            }`}
-          >
+          <button onClick={() => setListening(!listening)} className={`w-full py-3 rounded-xl font-medium ${listening ? 'bg-audra-purple text-white' : 'bg-gradient-teal-purple text-black'}`}>
             {listening ? 'Stop Listening' : 'Listen Now'}
           </button>
         </div>
@@ -124,14 +101,10 @@ const Origins = () => {
           <h2 className="text-xl font-bold mb-4">Sample Origins</h2>
           
           <div className="space-y-4">
-            {sampleData.map(sample => (
-              <div 
-                key={sample.id}
-                className="bg-audra-dark rounded-xl p-4 border border-white/10"
-              >
+            {sampleData.map(sample => <div key={sample.id} className="bg-audra-dark rounded-xl p-4 border border-white/10">
                 <div className="flex items-center mb-3">
                   <div className="w-12 h-12 rounded-lg overflow-hidden mr-3 shadow-md">
-                    <img src={sample.cover} alt={sample.title} className="w-full h-full object-cover" />
+                    <img src={sample.cover} alt={sample.title} className="w-full h-full object-cover-cover opacity-0" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-medium">{sample.title}</h4>
@@ -145,22 +118,15 @@ const Origins = () => {
                 
                 <div className="flex items-center justify-between text-xs mb-1">
                   <span>Sample confidence</span>
-                  <span className={`font-bold ${
-                    sample.percentage > 70 ? 'text-audra-teal' : 
-                    sample.percentage > 50 ? 'text-yellow-400' : 'text-audra-purple'
-                  }`}>
+                  <span className={`font-bold ${sample.percentage > 70 ? 'text-audra-teal' : sample.percentage > 50 ? 'text-yellow-400' : 'text-audra-purple'}`}>
                     {sample.percentage}%
                   </span>
                 </div>
                 
                 <div className="h-2 bg-audra-gray rounded-full">
-                  <div 
-                    className={`h-full rounded-full ${
-                      sample.percentage > 70 ? 'bg-audra-teal' : 
-                      sample.percentage > 50 ? 'bg-yellow-400' : 'bg-audra-purple'
-                    }`}
-                    style={{ width: `${sample.percentage}%` }} 
-                  />
+                  <div className={`h-full rounded-full ${sample.percentage > 70 ? 'bg-audra-teal' : sample.percentage > 50 ? 'bg-yellow-400' : 'bg-audra-purple'}`} style={{
+                width: `${sample.percentage}%`
+              }} />
                 </div>
                 
                 <div className="flex justify-between mt-3">
@@ -173,8 +139,7 @@ const Origins = () => {
                     <span>Full Song</span>
                   </button>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -184,8 +149,6 @@ const Origins = () => {
           </button>
         </div>
       </div>
-    </MobileLayout>
-  );
+    </MobileLayout>;
 };
-
 export default Origins;
