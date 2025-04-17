@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import MobileLayout from '@/components/layout/MobileLayout';
 import { Settings, Bell, MessageCircle } from 'lucide-react';
@@ -101,11 +100,12 @@ const UpcomingReleaseCard = ({ artistName, artistAvatar, releaseTitle, releaseDa
   );
 };
 
+// Update the DropFeedCard component to make image optional
 const DropFeedCard = ({
   artistName,
   artistAvatar,
   content,
-  image,
+  image = '',
   timestamp,
   dropProbability,
   votes,
@@ -244,7 +244,7 @@ const Index = () => {
         {/* Curated NMF section */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gradient-teal-purple mb-4">Curated NMF</h2>
-          <ScrollArea className="w-full" orientation="horizontal">
+          <ScrollArea className="w-full">
             <div className="flex pb-4">
               {upcomingReleases.map(release => (
                 <UpcomingReleaseCard key={release.id} {...release} />

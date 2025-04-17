@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +9,7 @@ import Search from "./pages/Search";
 import AudraHub from "./pages/AudraHub";
 import Profile from "./pages/Profile";
 import Origins from "./pages/Origins";
+import UpcomingReleases from "./pages/UpcomingReleases";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,7 @@ const App = () => (
           <Route path="/search" element={<Search />} />
           <Route path="/audrahub" element={<AudraHub />} />
           <Route path="/audrahub/origins" element={<Origins />} />
+          <Route path="/audrahub/upcoming" element={<UpcomingReleases />} />
           <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MobileLayout from '@/components/layout/MobileLayout';
-import { Music, ListMusic, Radar } from 'lucide-react';
+import { Music, ListMusic, Radar, Calendar } from 'lucide-react';
 
 const AudraHub = () => {
   const navigate = useNavigate();
@@ -15,6 +15,14 @@ const AudraHub = () => {
       icon: Music,
       color: 'from-audra-teal to-blue-500',
       path: '/audrahub/origins'
+    },
+    {
+      id: 'upcoming',
+      title: 'Upcoming Releases',
+      description: 'Find upcoming drops in any genre, updated weekly',
+      icon: Calendar,
+      color: 'from-purple-500 to-pink-500',
+      path: '/audrahub/upcoming'
     },
     {
       id: 'playlists',
