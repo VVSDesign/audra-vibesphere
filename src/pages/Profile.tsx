@@ -124,7 +124,7 @@ const Profile = () => {
           length: 5
         }).map((_, i) => <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 text-center">
                 <Avatar className="mx-auto mb-2 h-16 w-16 border-2 border-audra-purple">
-                  <AvatarImage src={`https://i.pravatar.cc/150?img=${25 + i}`} alt="Favorite artist" />
+                  <AvatarImage src={`https://i.pravatar.cc/150?img=${25 + i}`} alt="Favorite artist" className="cover opacity-0" />
                 </Avatar>
                 <h4 className="font-medium">{['Rhythm Racer', 'Beat Alchemist', 'Sonic Waves', 'Melody Maker', 'Groove Master'][i]}</h4>
                 <p className="text-xs text-white/60">Top Track: {['Electric Dreams', 'Synth Symphony', 'Digital Pulse', 'Techno Fusion', 'Ambient Echoes'][i]}</p>
