@@ -156,7 +156,7 @@ const DropFeedCard = ({
       <p className="text-sm mb-3">{content}</p>
       
       {image && <div className="rounded-xl overflow-hidden mb-3">
-          <img src={image} alt="Post media" className="w-full h-48 object-cover" />
+          <img src={image} alt="Post media" className="w-full h-48 object-cover-cover opacity-0" />
         </div>}
       
       <div className="bg-black/40 rounded-lg p-3 mb-3">
