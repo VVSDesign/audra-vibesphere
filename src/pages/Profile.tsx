@@ -15,32 +15,27 @@ const userData = {
   playlists: 24,
   theme: "teal" // 'teal' or 'purple'
 };
-
-const profileTabs = [
-  { id: 'reposts', label: 'Reposts', icon: Star },
-  { id: 'playlists', label: 'Playlists', icon: ListMusic },
-  { id: 'top5', label: 'My Top 5 Favs', icon: Star },
-];
-
+const profileTabs = [{
+  id: 'reposts',
+  label: 'Reposts',
+  icon: Star
+}, {
+  id: 'playlists',
+  label: 'Playlists',
+  icon: ListMusic
+}, {
+  id: 'top5',
+  label: 'My Top 5 Favs',
+  icon: Star
+}];
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('reposts');
-  
-  const HeaderActions = () => (
-    <Settings size={20} />
-  );
-
-  return (
-    <MobileLayout rightAction={<HeaderActions />}>
+  const HeaderActions = () => <Settings size={20} />;
+  return <MobileLayout rightAction={<HeaderActions />}>
       {/* Profile Header with Cover Image */}
       <div className="relative">
         <div className="h-40 bg-gradient-to-r from-audra-purple to-audra-teal">
-          {userData.headerImage && (
-            <img 
-              src={userData.headerImage} 
-              alt="Cover" 
-              className="w-full h-full object-cover opacity-60"
-            />
-          )}
+          {userData.headerImage && <img src={userData.headerImage} alt="Cover" className="w-full h-full object-cover opacity-0" />}
           <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-audra-background to-transparent" />
         </div>
         
@@ -58,9 +53,7 @@ const Profile = () => {
             </button>
           </div>
           
-          {userData.bio && (
-            <p className="mt-4 text-sm text-white/80">{userData.bio}</p>
-          )}
+          {userData.bio && <p className="mt-4 text-sm text-white/80">{userData.bio}</p>}
           
           <div className="flex mt-5 space-x-4">
             <div className="flex flex-col items-center">
@@ -82,27 +75,16 @@ const Profile = () => {
       {/* Profile Tabs */}
       <div className="border-b border-white/10">
         <div className="flex">
-          {profileTabs.map(tab => (
-            <button
-              key={tab.id}
-              className={`flex-1 py-3 flex flex-col items-center ${
-                activeTab === tab.id 
-                  ? 'border-b-2 border-audra-teal' 
-                  : 'text-white/70'
-              }`}
-              onClick={() => setActiveTab(tab.id)}
-            >
+          {profileTabs.map(tab => <button key={tab.id} className={`flex-1 py-3 flex flex-col items-center ${activeTab === tab.id ? 'border-b-2 border-audra-teal' : 'text-white/70'}`} onClick={() => setActiveTab(tab.id)}>
               <tab.icon size={16} className="mb-1" />
               <span className="text-xs">{tab.label}</span>
-            </button>
-          ))}
+            </button>)}
         </div>
       </div>
       
       {/* Tab Content */}
       <div className="p-4">
-        {activeTab === 'reposts' && (
-          <div className="bg-audra-dark rounded-xl p-4 border border-white/10">
+        {activeTab === 'reposts' && <div className="bg-audra-dark rounded-xl p-4 border border-white/10">
             <div className="flex items-center mb-3">
               <Music size={16} className="mr-2 text-audra-teal" />
               <h3 className="font-medium">Your Pinned Track</h3>
@@ -117,15 +99,16 @@ const Profile = () => {
               </div>
             </div>
             <div className="mt-2 h-1 w-full bg-audra-gray/40 rounded-full overflow-hidden">
-              <div className="bg-audra-teal h-full" style={{ width: '65%' }} />
+              <div className="bg-audra-teal h-full" style={{
+            width: '65%'
+          }} />
             </div>
-          </div>
-        )}
+          </div>}
         
-        {activeTab === 'playlists' && (
-          <div className="space-y-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 flex items-center">
+        {activeTab === 'playlists' && <div className="space-y-3">
+            {Array.from({
+          length: 3
+        }).map((_, i) => <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 flex items-center">
                 <div className="w-14 h-14 bg-gradient-to-br from-audra-purple/50 to-audra-teal/50 rounded-md flex items-center justify-center mr-3">
                   <ListMusic size={24} />
                 </div>
@@ -133,27 +116,21 @@ const Profile = () => {
                   <h4 className="font-medium">{['Chill Vibes', 'Beat Sketches', 'Sample Material'][i]}</h4>
                   <p className="text-xs text-white/60">{[12, 24, 8][i]} tracks • Last updated {['2d', '1w', '3h'][i]} ago</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              </div>)}
+          </div>}
         
-        {activeTab === 'top5' && (
-          <div className="grid grid-cols-2 gap-3">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 text-center">
+        {activeTab === 'top5' && <div className="grid grid-cols-2 gap-3">
+            {Array.from({
+          length: 5
+        }).map((_, i) => <div key={i} className="bg-audra-dark rounded-xl p-3 border border-white/10 text-center">
                 <Avatar className="mx-auto mb-2 h-16 w-16 border-2 border-audra-purple">
-                  <AvatarImage src={`https://i.pravatar.cc/150?img=${25+i}`} alt="Favorite artist" />
+                  <AvatarImage src={`https://i.pravatar.cc/150?img=${25 + i}`} alt="Favorite artist" />
                 </Avatar>
                 <h4 className="font-medium">{['Rhythm Racer', 'Beat Alchemist', 'Sonic Waves', 'Melody Maker', 'Groove Master'][i]}</h4>
                 <p className="text-xs text-white/60">Top Track: {['Electric Dreams', 'Synth Symphony', 'Digital Pulse', 'Techno Fusion', 'Ambient Echoes'][i]}</p>
-              </div>
-            ))}
-          </div>
-        )}
+              </div>)}
+          </div>}
       </div>
-    </MobileLayout>
-  );
+    </MobileLayout>;
 };
-
 export default Profile;
