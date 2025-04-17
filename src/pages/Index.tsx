@@ -145,7 +145,7 @@ const DropFeedCard = ({
   return <div className="bg-audra-dark rounded-2xl p-4 mb-4 border border-white/10">
       <div className="flex items-center mb-3">
         <Avatar className="h-10 w-10 border-2 border-audra-purple">
-          <AvatarImage src={artistAvatar} alt={artistName} />
+          <AvatarImage src={artistAvatar} alt={artistName} className="cover opacity-0" />
         </Avatar>
         <div className="ml-3">
           <h3 className="font-bold">{artistName}</h3>
