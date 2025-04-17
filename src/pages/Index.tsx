@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import MobileLayout from '@/components/layout/MobileLayout';
-import { Settings, Bell, MessageCircle } from 'lucide-react';
+import { Settings, Bell, MessageCircle, Disc } from 'lucide-react';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
@@ -83,19 +82,22 @@ const dropFeedData = [
   }
 ];
 
-// Component for upcoming release card
-const UpcomingReleaseCard = ({ artistName, artistAvatar, releaseTitle, releaseDate, releaseType }) => {
+// Component for upcoming release list item
+const UpcomingReleaseListItem = ({ artistName, artistAvatar, releaseTitle, releaseDate, releaseType }) => {
   return (
-    <div className="flex-shrink-0 w-40 bg-audra-dark rounded-lg p-3 mr-3 border border-white/10">
-      <Avatar className="h-14 w-14 mx-auto border-2 border-audra-purple mb-2">
+    <div className="flex items-center bg-audra-dark rounded-lg p-3 mb-3 border border-white/10">
+      <Avatar className="h-12 w-12 border-2 border-audra-purple mr-3">
         <AvatarImage src={artistAvatar} alt={artistName} />
       </Avatar>
-      <h4 className="font-bold text-sm text-center mb-1 truncate">{artistName}</h4>
-      <p className="text-xs text-center text-white/80 mb-2 truncate">{releaseTitle}</p>
-      <div className="flex justify-between items-center">
-        <span className="text-xs bg-audra-purple/30 rounded-full px-2 py-0.5">{releaseType}</span>
-        <span className="text-xs text-white/60">{releaseDate}</span>
+      <div className="flex-1">
+        <h4 className="font-bold text-sm mb-0.5">{artistName}</h4>
+        <p className="text-xs text-white/80 mb-1">{releaseTitle}</p>
+        <div className="flex justify-between items-center">
+          <span className="text-xs bg-audra-purple/30 rounded-full px-2 py-0.5">{releaseType}</span>
+          <span className="text-xs text-white/60">{releaseDate}</span>
+        </div>
       </div>
+      <Disc className="ml-2 text-audra-teal h-5 w-5" />
     </div>
   );
 };
@@ -244,13 +246,11 @@ const Index = () => {
         {/* Curated NMF section */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gradient-teal-purple mb-4">Curated NMF</h2>
-          <ScrollArea className="w-full">
-            <div className="flex pb-4">
-              {upcomingReleases.map(release => (
-                <UpcomingReleaseCard key={release.id} {...release} />
-              ))}
-            </div>
-          </ScrollArea>
+          <div className="space-y-1">
+            {upcomingReleases.map(release => (
+              <UpcomingReleaseListItem key={release.id} {...release} />
+            ))}
+          </div>
         </div>
         
         <Separator className="mb-6 bg-white/10" />
